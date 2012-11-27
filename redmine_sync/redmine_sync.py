@@ -194,7 +194,7 @@ def main(argv=None):
             if project_id and tracker_id and status_id and assigned_to_id:
     
                 if i['id']=='A':
-                    ni=r.Issue()
+                    ni=r.Issue()()
                     action = "Added"
                 else:
                     action ="Updated"
@@ -206,6 +206,8 @@ def main(argv=None):
                 ni.assigned_to_id=assigned_to_id
                 ni.status_id = status_id
                 ni.priority_id = i['priority']
+                
+           
     
                 ni.save()
             
