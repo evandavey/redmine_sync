@@ -11,7 +11,7 @@ Utility to sync the [redmine][] project management system with a CSV file.
 
 1. Generate csv of issues from the database
 
-   > redmine_sync <url> <api_key> --filename tasks.csv
+   > redmine_sync url api_key --filename tasks.csv
 
 2. Update tasks.csv using the A,E or D flags (see redmine_sync -h) and resync as in 1
 
