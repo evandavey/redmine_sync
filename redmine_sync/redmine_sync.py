@@ -216,7 +216,7 @@ def main(argv=None):
                     'id':ni.id,
                     'subject':ni.subject,
                     'project': r.Project().find(ni.project.id).identifier,
-                    'assigned_to': find_user_or_group_login(ni.assigned_to.id),
+                    'assigned_to': find_user_or_group_login(ni.assigned_to_id),
                     'status': i['status'],
                     'tracker': ni.tracker.name,
                     'priority': i['priority'],
@@ -239,12 +239,16 @@ def main(argv=None):
             i_id=id_hash[ni.id]
         except:
             
+            try:
+                assigned_to = find_user_or_group_login(ni.assigned_to.id)
+            except:
+                assigned_to = None
                 
             newdata.append({
                     'id':ni.id,
                     'subject':ni.subject,
                     'project': r.Project().find(ni.project.id).identifier,
-                    'assigned_to': find_user_or_group_login(ni.assigned_to.id),
+                    'assigned_to': assigned_to,
                     'status': ni.status.name,
                     'tracker': ni.tracker.name,
                     'priority': ni.priority.id,
