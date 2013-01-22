@@ -144,6 +144,19 @@ def write_data(filename, data):
         for row in data:
             writer.writerow(row)
 
+ def list_projects():
+
+    global r
+
+    projects=r.Project().find()
+
+    for p in projects:
+        parent = getattr(p,"parent",None)
+
+        if parent:
+            print "%s:%s" % (p.parent.name,p.name)
+        else:
+            print p.name
 
 def main(argv=None):
     
