@@ -144,7 +144,7 @@ def write_data(filename, data):
         for row in data:
             writer.writerow(row)
 
- def list_projects():
+def list_projects():
 
     global r
 
